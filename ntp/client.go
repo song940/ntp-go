@@ -8,14 +8,18 @@ import (
 )
 
 type NTPClient struct {
-	Server string
+	Server  string
+	Timeout time.Duration
 }
 
 const NtpEpochOffset = 2208988800
 
-func NewClient(server string) *NTPClient {
-	client := &NTPClient{server}
-	return client
+func NewClient(server string) (client *NTPClient) {
+	client = &NTPClient{
+		Server:  server,
+		Timeout: 15 * time.Second,
+	}
+	return
 }
 
 func (client *NTPClient) GetTime() (t time.Time, err error) {
@@ -24,7 +28,7 @@ func (client *NTPClient) GetTime() (t time.Time, err error) {
 		return t, fmt.Errorf("failed to connect: %v", err)
 	}
 	defer conn.Close()
-	if err := conn.SetDeadline(time.Now().Add(15 * time.Second)); err != nil {
+	if err := conn.SetDeadline(time.Now().Add(client.Timeout)); err != nil {
 		return t, fmt.Errorf("failed to set deadline: %v", err)
 	}
 

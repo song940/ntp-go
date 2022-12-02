@@ -1,15 +1,25 @@
 package cli
 
 import (
-	"log"
+	"flag"
+	"fmt"
 
 	"github.com/song940/ntp/ntp"
 )
 
+var (
+	server string
+)
+
 func Run() {
-	client := ntp.NewClient(
-		"time.apple.com:123",
-	)
+
+	flag.StringVar(&server, "s", "time.apple.com:123", "ntp server")
+	flag.Parse()
+
+	client := ntp.NewClient(server)
 	time, err := client.GetTime()
-	log.Println(time, err)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(time)
 }
