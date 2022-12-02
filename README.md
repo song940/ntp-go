@@ -36,7 +36,8 @@ TODO: implement
 
 ## Node.js Implementation
 
-> ⌛ simple network time protocol implementation for node.js
+> ⌛ simple network time protocol implementation for node.js 
+>
 > https://github.com/song940/node-ntp
 
 ## License
