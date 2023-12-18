@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/song940/ntp/ntp"
+	"github.com/song940/ntp-go/ntp"
 )
 
 var (

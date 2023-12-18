@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/song940/ntp/cli"
+	"github.com/song940/ntp-go/cli"
 )
 
 func main() {

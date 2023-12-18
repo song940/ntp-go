@@ -1,3 +1,3 @@
-module github.com/song940/ntp
+module github.com/song940/ntp-go
 
-go 1.19
+go 1.21

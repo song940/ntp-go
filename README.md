@@ -4,8 +4,8 @@
 
 ## Installation
 
-```sh
-~$ go get github.com/song940/ntp.go
+```shell
+~$ go get github.com/song940/ntp-go
 ```
 
 ## Example
@@ -18,7 +18,7 @@ package main
 import (
 	"log"
 
-	"github.com/song940/ntp/ntp"
+	"github.com/song940/ntp-go/ntp"
 )
 
 func main() {
